@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        @font-face {
+            font-family: myfont;
+            src: url(font/Pacifico.ttf);
+            font-weight: bold;
+        }
+        @font-face {
+            font-family: myfont2;
+            src: url(font/MAGNETOB.TTF);
+            font-weight: bold;
+        }
+        @font-face {
+            font-family: myfont3;
+            src: url(font/LHANDW.TTF);
+            font-weight: bold;
+        }
+        #p1{
+            font-family: myfont;
+        }
+        #p2{
+            font-family: myfont2;
+        }
+        #p3{
+            font-family: myfont3;
+        }
+        #p4{
+            width: 140px;
+            border: 1px solid red;
+            word-wrap: break-word;
+        }
+        #p5{
+             width: 120px;
+             border: 1px solid red;
+             text-overflow: clip;
+             white-space: nowrap;
+             overflow:hidden;
+
+         }
+        #p6{
+            width: 90px;
+            border: 1px solid red;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow:hidden;
+
+        }
+    </style>
+</head>
+<body>
+<p id="p1">this is the demoof Pacifico web font style</p>
+<p id="p2">this is the demo    of Magnetob web font style</p>
+<p id="p3">this is the demoof Lhandw web font style</p>
+<p id="p4"> this is a demo of the long text (thisisthelongwordwhichnotgoingtoend) which will adjust or wrap this is a demo of the long text which will adjust or wrap</p>
+<p id="p5" > this is a demo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of the long text which will Clip this is a demo of the long text which will Clip</p>
+<p id="p6"> this is a demo of the long text which will Ellipse this will show</p>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .screen{
+            width: 600px;
+            height: 200px;
+            background-color: gray;
+            border-width: 10px;
+            border-radius: 9%;
+            background-image: url("image/screen.jpg");
+        }
+        .circle{
+            /* top left, top-right, bottom-left, bottom-right */
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            border-width: 5px;
+            border-style: solid;
+            background-image: url("image/AngryBird.jpg");
+        }
+        #para1{
+            /* top left, top-right, bottom-right, bottom-left */
+            border-radius: 15px 50px 30px 5px;
+            background-color: red;
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+The Radius and the BackGround Image
+<div class="screen"></div>
+<br>
+Rounded Circle Radius
+<div class="circle">
+    
+</div>
+<p id="para1"></p>
+</body>
+</html>

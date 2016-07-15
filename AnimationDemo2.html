@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        h1{
+            -webkit-animation-name: moveit;
+            -webkit-animation-duration: 7s;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-iteration-count: infinite;
+        }
+        @-webkit-keyframes moveit {
+            from{
+                margin-left: 100%;
+                width: 300%;
+            }
+            75%{
+                font-size: 300%;
+                margin-left: 25%;
+                width: 150%;
+            }
+            to{
+                margin-left: 0%;
+                width: 100%;
+                font-size: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>I Like to Move it</h1>
+</body>
+</html>

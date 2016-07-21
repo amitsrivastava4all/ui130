@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Say Hello App</title>
+    <script type="application/javascript">
+    // From here i will write my JavaScript
+    function isBlank(str, fieldName,errorfieldid){
+        if(str.length==0){
+            document.getElementById(errorfieldid).innerHTML= fieldName +" Can't be Blank";
+            return true;
+        }
+        return false;
+        
+    }
+    function minCharCheck(str,fieldname,minChar,errorfieldid){
+            if(str.length<minChar){
+                document.getElementById(errorfieldid).innerHTML=fieldname+" Can't Be Less than "+minChar;
+                return true;
+            }
+        return false;
+    }
+        function checkFirstNameCorrect(){
+           var firstname = document.getElementById("firstname"); if(!isBlank(firstname.value,"FirstName","firstnameerror")){
+               if(!minCharCheck(firstname.value,"First Name",3,"firstnameerror")){
+                   document.getElementById("firstnameerror").innerHTML="";
+               }
+           }
+        }
+    function sayHello(){
+        var firstname = document.getElementById("firstname");
+        var lastname = document.getElementById("lastname");
+        var isFirstNameBlank= isBlank(firstname.value,"FirstName","firstnameerror");
+        var isLastNameBlank=isBlank(lastname.value,"LastName","lastnameerror");
+        if(!isFirstNameBlank){
+        minCharCheck(firstname.value,"First Name",3,"firstnameerror");
+        }
+        if(!isLastNameBlank){
+        minCharCheck(lastname.value,"Last Name",5,"lastnameerror");
+        }    
+            //        if(firstname.value.length==0){
+//            document.getElementById("firstnameerror").innerHTML="FirstName Can't be blank";
+//        }
+//        var temp = firstname.value;
+//        firstname.value = lastname.value;
+//        lastname.value = temp;
+        document.getElementsByTagName("h1")[1].innerHTML="Welcome "+firstname.value+" "+lastname.value;
+        
+       // alert("Hello  "+firstname.value +" "+lastname.value);
+    }
+    </script>
+</head>
+<body>
+   <h1>Example 1 </h1>
+    <h1>Say Hello App</h1>
+    <table>
+        <tr>
+            <td><label for="">FirstName</label></td>
+            <td><input onkeyup="checkFirstNameCorrect()" id="firstname" type="text" placeholder="Type First Name Here"><span id="firstnameerror"></span></td>
+        </tr>
+        <tr>
+            <td><label for="">LastName</label></td>
+            <td><input id="lastname"  type="text" placeholder="Type Second Name here"><span id="lastnameerror"></span></td>
+        </tr>
+        <tr>
+            <td><button onclick="sayHello()">Say Hello</button></td>
+            <td><button>Reset</button></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.completed{
+color: red;
+font-style: italic;
+text-decoration: line-through;    
+}
+.pending{
+    color: green;
+    font-weight: bold;
+}
+#searchBox{
+    display: none;
+}

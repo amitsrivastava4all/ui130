@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/model/task.js"></script>
+    <script src="js/model/taskoperations.js"></script>
+    <script src="js/controller/taskcontroller.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><label for="taskName">Name</label></td>
+            <td><input id="taskName" type="text" placeholder="Type TaskName"></td>
+        </tr>
+        <tr>
+            <td><label for="">Desc</label></td>
+            <td><textarea id="taskDesc" cols="30" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td><button id="addBt">
+                            Add
+                        </button></td>
+                        <td><button id="deleteBt">
+                            Delete
+                        </button></td>
+                        <td><button id="searchBt">
+                            Search
+                        </button></td>
+                        <td><button id="sortBt">
+                            Sort
+                        </button></td>
+                        <td><button id="save">
+                            Save
+                        </button></td>
+                        <td><button id="loadLocal">
+                            Load Local
+                        </button>
+                        
+                        </td>
+                        <td><button id="loadserver">
+                            Load From Server
+                        </button>
+                        
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <div id="searchBox">
+        <input type="text" id="searchTask" placeholder="Type TaskName to Search">
+    </div>
+    <h1>Pending Count <span id="pending"></span> Completed Count <span id="completed"></span></h1>
+    <fieldset>
+        <legend>Task List</legend>
+        <ul id="taskList">
+            
+        </ul>
+    </fieldset>
+</body>
+</html>

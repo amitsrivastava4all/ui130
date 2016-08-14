@@ -1,0 +1,19 @@
+.completed{
+color: red;
+font-style: italic;
+text-decoration: line-through;    
+}
+.pending{
+    color: green;
+    font-weight: bold;
+}
+#searchBox{
+    display: none;
+}
+#showloader{
+    display: none;
+    z-index: 1;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+}

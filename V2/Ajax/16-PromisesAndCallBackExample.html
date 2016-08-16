@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.addEventListener("load",function(){
+        document.getElementById("b1").addEventListener("click",function(){
+        if (window.Promise) {
+            console.log('Promise found');
+
+            var promise = new Promise(function(resolve, reject) {
+                var request = new XMLHttpRequest();
+
+                request.open('GET', 'https://freegeoip.net/json/google.com');
+                request.onload = function() {
+                    if (request.status == 200) {
+                        resolve(request.response); // we got data here, so resolve the Promise
+                    } else {
+                        reject(Error(request.statusText)); // status is not 200 OK, so reject
+                    }
+                };
+
+//                request.onerror = function() {
+//                    reject(Error('Error fetching data.')); // error occurred, reject the  Promise
+//                };
+
+                request.send(); //send the request
+            });
+
+            console.log('Asynchronous request made.');
+
+            promise.then(function(data) {
+                console.log('Got data! Promise fulfilled.');
+                document.getElementById('div1').innerHTML = JSON.parse(data).country_code+ " "+JSON.parse(data).ip.country_name;
+            }, function(error) {
+                console.log('Promise rejected.');
+                console.log(error.message);
+            });
+        } else {
+            console.log('Promise not available');
+        }
+        });
+        });
+    </script>
+</head>
+<body>
+<p>Promises are now a part of standard JavaScript. Chrome 32 beta has already implemented the basic Promise API.</p>
+<button id="b1">Promise Demo</button>
+<div id="div1"></div>
+</body>
+</html>

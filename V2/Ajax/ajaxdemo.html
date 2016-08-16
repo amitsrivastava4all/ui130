@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/model/ajax.js"></script>
+    <script >
+        var counter = 1;
+    function count(){
+        document.getElementById("count").innerHTML=counter;
+        counter++;
+    }
+    function print(){
+        document.getElementById("showloader").style.display='block';
+        //document.getElementById("showloader").innerHTML="Loading.....";
+        var promise = 
+           doAjax('GET','servers/server.json',null); //doAjax('GET','https://freegeoip.net/json/google.com',null);
+        for(var i = 1; i<=10000;i++){
+            console.log("DO Something else",i);
+        }
+        promise.then(success,fail);
+        function success(data){
+           document.getElementById("showloader").style.display='none'; 
+           console.log("JSON ",typeof data);
+           var object = JSON.parse(data);
+            var first = object.results[0];
+            document.getElementById("mymsg").innerHTML=
+               first.collectionName+" <img src='"+first.artworkUrl60+"'>";
+        }
+        function fail(e){
+document.getElementById("mymsg").innerHTML=e;
+        }
+    }    
+    </script>
+</head>
+<body>
+  <div id="showloader" >
+        <img src="images/loader.gif" alt="">
+    </div>
+    <br>
+    <br>
+    
+   <p>Count is <span id="count"></span> </p>
+    <button onclick="print()">Do Ajax</button>
+    
+    <button onclick="count()">Do Count</button>   
+    <div id="mymsg"></div>
+</body>
+</html>

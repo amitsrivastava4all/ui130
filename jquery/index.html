@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Program</title>
+    <style>
+        span{
+            font-size: 3em;
+            font-weight: bold;
+            font-style: italic;
+            color:red;
+        }
+    </style>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script>
+       // alert("I am the First....");
+    $(document).ready(init);
+    function init(){
+       // Selectors
+        $("p").click(function(){
+          // $("p").hide(1000);
+        
+            //$(".hideit").hide(1000);
+            //$("#ok3").hide(1000);
+            //$(this).hide(1000);
+      // $(this).slideUp(1000);
+       // $(this).fadeOut(1000);
+           // $("#ok3").html("<h1>Happy Coding</h1>");
+            $("#ok3").html("<img src='https://upload.wikimedia.org/wikipedia/commons/2/25/Sachin_Tendulkar_at_MRF_Promotion_Event.jpg'>");
+            //$("#ok3").text("<h1>Happy Coding </h1>");
+        $(this).animate({
+            color:'red',
+            fontSize:30,
+            fontStyle:'bold'
+            
+            
+        },1000).fadeOut(1000).slideDown(1000)}); 
+        
+    }    
+//    $(window).ready(function(){
+//        alert("I Will Run when Page (HTML + CSS + JS ) is Loadedd")
+//    }) ;   
+    </script>
+</head>
+<body>
+    <h1 onclick="$(this).hide(1000)">Hello JQuery, Click Me to Hide</h1>
+    <p>hello1</p>
+    <p>hello2</p>
+    <p>hello3</p>
+    <p>hello4</p>
+    <p>ok1</p>
+    <p>ok2</p>
+    <p id="ok3">ok3</p>
+    <p>ok4</p>
+    <p>ok5</p>
+    <p class="hideit">ok6</p>
+    <p>ok7</p>
+    <p class="hideit">ok8</p>
+    <p>ok9</p>
+    <p class="hideit">ok10</p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" manifest="app.manifest">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-online.css">
+    <script src="taskManager.js"></script>
+    <script>
+    applicationCache.addEventListener("updateready", function(){
+        alert("Cache Updated...");
+        var shouldReload = confirm('The app is updated. Do you want to refresh');
+        if (shouldReload) window.location.reload();
+    });
+    </script>
+
+</head>
+<body>
+    <h1>Task Manager - V2.0</h1>
+    <label for="">Task :</label>
+    <input type="text" name="" id="txtTask">
+    <input type="button" value="Add Task" id="btnAdd">
+    <input type="button" value="Remove Completed" id="btnRemoveCompleted">
+    <ol id="olTaskList">
+
+    </ol>
+</body>
+</html>

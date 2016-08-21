@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .yellow{
+            background-color: yellow;
+            border-color: red;
+        }
+        
+    </style>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script>
+    $(function(){
+        $("#clear").click(function(){
+           $(":text").val(''); 
+        });
+        $(":text").focusin(function(){
+            $(this).addClass("yellow");    
+        });
+         $(":text").focusout(function(){
+            $(this).removeClass("yellow"); 
+        });
+        // Helper Event
+        $("a").hover(function(){
+            // Helper Function
+            $(this).toggleClass("yellow")    
+        });
+    });
+    </script>
+</head>
+<body>
+   <a href="">link1</a>
+   <a href="">link2</a>
+   <a href="">link3</a>
+   <a href="">link4</a>
+   <a href="">link5</a>
+    <input type="text">
+    <br>
+    <input type="text">
+    <br>
+    <input type="text">
+    <br>
+    <input type="text">
+    <br>
+    <input type="text">
+    <br>
+    <button id="clear">Clear</button>
+</body>
+</html>

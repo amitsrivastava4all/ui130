@@ -1,0 +1,249 @@
+function print(){
+console.log("This is "+this.name);}
+undefined
+name="Amit";
+"Amit"
+window.name;
+"Amit"
+window.print();
+This is Amit
+undefined
+function Customer(id, name ,balance){
+this.id = id;
+this.name = name;
+this.balance = balance;
+}
+undefined
+var ram =new Customer(1001,"Ram",9999);
+undefined
+print;
+print(){
+console.log("This is "+this.name);}
+print.apply(ram);
+This is Ram
+undefined
+print.apply(window);
+This is Amit
+undefined
+function print(){
+console.log("Name is "+this.name);
+console.log("Id is "+this.id);
+}
+undefined
+window.print();
+Name is Amit
+Id is undefined
+undefined
+print.apply(window);
+Name is Amit
+Id is undefined
+undefined
+print.apply(ram);
+Name is Ram
+Id is 1001
+undefined
+function print(){
+
+console.log("Name is "+this.name);
+console.log("Id is "+this.id);
+for(var i = 0; i<arguments.length; i++){
+console.log("Common Args ",arguments[i]);
+}
+}
+undefined
+print.apply(ram);
+Name is Ram
+Id is 1001
+undefined
+print.apply(ram,88888,"Phones");
+Uncaught TypeError: CreateListFromArrayLike called on non-object(…)
+print.apply(ram,[88888,"Phones"]);
+Name is Ram
+Id is 1001
+Common Args  88888
+Common Args  Phones
+undefined
+function print(){
+
+console.log("Name is "+this.name);
+console.log("Id is "+this.id);
+for(var i = 0; i<arguments.length; i++){
+console.log("Not Common Args ",arguments[i]);
+}
+}
+undefined
+print.apply(ram,[88888,"Phones"]);
+Name is Ram
+Id is 1001
+Not Common Args  88888
+Not Common Args  Phones
+undefined
+function Product(id,name,price,quantity){
+this.id = id;
+this.name = name;
+this.price = price;
+this.quantity=quantity;
+}
+undefined
+var mobile = new Product(10,"Nokia",9999,2);
+undefined
+print.apply(mobile);
+Name is Nokia
+Id is 10
+undefined
+print.apply(mobile,[mobile.price,mobile.quantity]);
+Name is Nokia
+Id is 10
+Not Common Args  9999
+Not Common Args  2
+undefined
+ram;
+Customer {id: 1001, name: "Ram", balance: 9999}
+print.apply(ram,[ram.balance]);
+Name is Ram
+Id is 1001
+Not Common Args  9999
+undefined
+print.call(ram,ram.balance);
+Name is Ram
+Id is 1001
+Not Common Args  9999
+undefined
+var e=[10,20,30,40,50,60];
+undefined
+print.apply(ram,e);
+Name is Ram
+Id is 1001
+Not Common Args  10
+Not Common Args  20
+Not Common Args  30
+Not Common Args  40
+Not Common Args  50
+Not Common Args  60
+undefined
+var e = [10,20,[90,100]];
+undefined
+print.apply(ram,e);
+Name is Ram
+Id is 1001
+Not Common Args  10
+Not Common Args  20
+Not Common Args  [90, 100]
+undefined
+var t = print.bind(ram);
+undefined
+var y = print.bind(mobile);
+undefined
+function curry(){
+t();
+y();
+}
+undefined
+curry();
+Name is Ram
+Id is 1001
+Name is Nokia
+Id is 10
+undefined
+function curry(){
+t(10,20,30,40);
+y();
+}
+undefined
+curry();
+Name is Ram
+Id is 1001
+Not Common Args  10
+Not Common Args  20
+Not Common Args  30
+Not Common Args  40
+Name is Nokia
+Id is 10
+undefined
+var numbers={1:1,2,:2,3:3,4:4,5:5};
+Uncaught SyntaxError: Unexpected token ,
+var numbers={1:1,2:2,3:3,4:4,5:5};
+undefined
+typeof numbers;
+"object"
+object[1];
+Uncaught ReferenceError: object is not defined(…)
+numbers[1];
+1
+numbers[5];
+5
+numbers[50];
+undefined
+ var cache={};
+    function getPrime(num){
+    var isPrime = true;
+    if(typeof(cache[num])!=="undefined"){
+        console.log("Coming from the Cache.... It is Prime No "+cache[num]);
+        isPrime = true;
+        return isPrime;
+    }
+        else
+    {
+        if(num<=3){
+            isPrime = true;
+            cache[num]=num;
+            console.log("Processed....");
+            return isPrime;
+        }
+        else
+        {
+            for(var i = 2; i<=num-1; i++){
+                if(num% i ===0){
+                    isPrime= false;
+
+                    console.log("Processed....");
+                    break;
+
+                }
+            }
+            if(isPrime===true){
+                cache[num]=num;
+                console.log("Prime Number "+num);
+
+            }
+            else
+            {
+
+                console.log("Not a Prime Number "+num);
+            }
+        }
+        return isPrime;
+    }
+
+    }
+
+undefined
+cache;
+Object {}
+getPrime(3);
+Processed....
+true
+cache;
+Object {3: 3}
+getPrime(3);
+Coming from the Cache.... It is Prime No 3
+true
+getPrime(5);
+Prime Number 5
+true
+cache;
+Object {3: 3, 5: 5}
+getPrime(7);
+Prime Number 7
+true
+cache;
+Object {3: 3, 5: 5, 7: 7}
+getPrime(7);
+Coming from the Cache.... It is Prime No 7
+true
+(function(x,y){
+var sum = parseInt(x) + parseInt(y);
+console.log("Sum is ",sum);
+})(100,200);
+Sum is  300
+undefined

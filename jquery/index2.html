@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .mystyle{
+            background-color: aqua;
+            color:red;
+        }
+    </style>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#me").click(function(){
+        //   $("div div div p span").addClass("mystyle"); 
+        //$("p:first span").addClass("mystyle");
+            $("p:eq(1) span").addClass("mystyle");
+            $( "table tbody tr:odd" ).css( "background-color", "aqua" );
+             $( "table tbody tr:even" ).css( "background-color", "red" );
+        });
+        
+    });
+    </script>
+</head>
+<body>
+  <table border="1">
+      <thead>
+         <tr>
+          <th>Empno</th>
+          <th>Name</th>
+          </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td>1001</td>
+          <td>Ram</td>
+      </tr>
+      <tr>
+          <td>1002</td>
+          <td>Shyam</td>
+      </tr>
+      <tr>
+          <td>1003</td>
+          <td>Mike</td>
+      </tr>
+      <tr>
+          <td>1004</td>
+          <td>Tom</td>
+      </tr>
+      <tr>
+          <td>1005</td>
+          <td>Kim</td>
+      </tr>
+      </tbody>
+  </table>
+   <button id="me">Click Me</button>
+   <p><span>Hi</span></p>
+   <p><span>Hello</span></p>
+   <p><span>Ok</span></p>
+    <div>
+        <div>
+            <div>
+                <p>Hello<span>Friends !</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
